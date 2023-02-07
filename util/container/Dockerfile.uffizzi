@@ -5,8 +5,6 @@
 # Docker container containing various hardware and software development tools
 # for OpenTitan.
 
-FROM uffizzi/ttyd:nodejs as opentitan
-
 # Global configuration options.
 ARG VERILATOR_VERSION=4.210
 ARG VERIBLE_VERSION=v0.0-2135-gb534c1fe
@@ -21,7 +19,7 @@ ARG GCC_VERSION=9
 ARG CLANG_VERSION=13
 
 # Main container image.
-# FROM ubuntu:20.04 AS opentitan
+FROM ubuntu:20.04 AS opentitan
 ARG VERILATOR_VERSION
 ARG VERIBLE_VERSION
 ARG RISCV_TOOLCHAIN_TAR_VERSION
@@ -204,4 +202,6 @@ RUN BAZELISK_PATH="/usr/local/bin/bazelisk"; \
 
 RUN runuser dev -c "bazel > /dev/null"
 
+
+FROM uffizzi/ttyd:nodejs
 ENTRYPOINT [ "/start.sh" ]
