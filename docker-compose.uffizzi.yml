@@ -10,8 +10,7 @@ services:
   opentitan:
     image: "${OPENTITAN_IMAGE}"
     volumes: 
-      - .:/home/dev/src
-    command: ["ttyd /bin/bash"]   
+      - .:/home/dev/src  
     ports:
     - "7700:7700"
     - "7681:7681"
