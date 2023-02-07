@@ -203,5 +203,5 @@ RUN BAZELISK_PATH="/usr/local/bin/bazelisk"; \
 RUN runuser dev -c "bazel > /dev/null"
 
 FROM uffizzi/ttyd:alpine
-
+RUN ls -l
 ENTRYPOINT [ "/start.sh" ]
