@@ -5,7 +5,7 @@
 # Docker container containing various hardware and software development tools
 # for OpenTitan.
 
-FROM uffizzi/ttyd:golang1.18-alpine as opentitan
+FROM uffizzi/ttyd:nodejs as opentitan
 
 # Global configuration options.
 ARG VERILATOR_VERSION=4.210
