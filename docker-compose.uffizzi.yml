@@ -1,4 +1,4 @@
-version: "3.8"
+version: "3"
 
 x-uffizzi:
   ingress:
@@ -14,12 +14,8 @@ services:
     ports:
     - "7700:7700"
     - "7681:7681"
-    entrypoint: ["/bin/bash"]
-    command: 
-     - "-c"
-     - "cd /home/dev && \ 
-        ttyd bash
-        "
+    entrypoint: ["/bin/bash", "-c"]
+    command: ["cd /home/dev && ttyd bash"]   
     deploy:
       resources:
         limits:
