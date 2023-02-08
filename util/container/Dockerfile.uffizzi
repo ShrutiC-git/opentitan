@@ -199,7 +199,10 @@ RUN BAZELISK_PATH="/usr/local/bin/bazelisk"; \
     curl -L -o ${BAZELISK_PATH} ${BAZELISK_URL} && \
     chmod +x ${BAZELISK_PATH} && \
     ln -s ${BAZELISK_PATH} /usr/local/bin/bazel
+    
+# Install ttyd
+RUN sudo snap install ttyd --classic    
 
-# RUN runuser dev -c "bazel > /dev/null"
-FROM uffizzi/ttyd:nodejs
+RUN runuser dev -c "bazel > /dev/null"
+
 ENTRYPOINT [ "/start.sh" ]
