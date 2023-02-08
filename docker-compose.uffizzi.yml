@@ -22,7 +22,8 @@ services:
       apt-get install wget -y && \
       wget 'https://github.com/$GHA_ACTOR/$GHA_REPO/archive/refs/heads/$GHA_BRANCH.zip' && \
       ls && \
-      unzip $GHA_BRANCH.zip -d /home/dev/src && \
+      unzip $GHA_BRANCH.zip -d . && \
+      mv $GHA_REPO-$GHA_BRANCH /home/dev/src && \
       ls && \
       cd /home/dev/src && \
       ttyd 
@@ -31,4 +32,3 @@ services:
       resources:
         limits:
           memory: 4000M
-
