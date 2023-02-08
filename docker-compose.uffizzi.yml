@@ -9,8 +9,8 @@ services:
 
   opentitan:
     image: "${OPENTITAN_IMAGE}"
-    # volumes: 
-    #   - .:/home/dev/src 
+    volumes: 
+      - .:/home/dev/src 
     ports:
     - "7700:7700"
     - "7681:7681"
