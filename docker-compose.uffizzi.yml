@@ -23,10 +23,9 @@ services:
       apt-get install unzip -y && \ 
       apt-get install wget -y && \
       wget 'https://github.com/$GHA_ACTOR/$GHA_REPO/archive/refs/heads/$GHA_BRANCH.zip' && \
-      ls && \
       unzip $GHA_BRANCH.zip -d . && \
       mv $GHA_REPO-$GHA_BRANCH /home/dev/src && \
-      cd /home/dev && \
+      cd /home/dev && ls && \
       ttyd bash
       "
     deploy:
