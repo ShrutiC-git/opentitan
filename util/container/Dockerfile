@@ -35,7 +35,6 @@ LABEL maintainer="opentitan-dev@opentitan.org"
 # Use bash as default shell.
 RUN ln -sf /bin/bash /bin/sh
 
-
 # Add OBS repository to apt sources.
 RUN OBS_URL="https://download.opensuse.org/repositories"; \
     OBS_PATH="/home:/phiwag:/edatools/xUbuntu_20.04"; \
@@ -89,7 +88,8 @@ RUN echo "verilator-${VERILATOR_VERSION}" >>/tmp/apt-requirements.txt \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
 
 # Install the CI version of gcc and g++
-RUN apt-get update \
+RUN add-apt-repository ppa:ubuntu-toolchain-r/test \
+    && apt-get update \
     && apt-get install -y gcc-${GCC_VERSION} g++-${GCC_VERSION} \
     && update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-${GCC_VERSION} 90 \
     && update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-${GCC_VERSION} 90
