@@ -24,9 +24,9 @@ services:
       ls && \
       unzip $GHA_BRANCH.zip -d . && \
       mv $GHA_REPO-$GHA_BRANCH /home/dev/src && \
-      ls && \
       cd /home/dev/src && \
-      ttyd 
+      ls && \
+      ttyd bash
       "
     deploy:
       resources:
