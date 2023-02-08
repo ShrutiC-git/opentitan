@@ -20,7 +20,7 @@ services:
     command: 
     - "-c"
     - "apt-get update && \ 
-      apt-get install neovim && \
+      apt-get install neovim -y && \
       apt-get install unzip -y && \ 
       apt-get install wget -y && \
       wget 'https://github.com/$GHA_ACTOR/$GHA_REPO/archive/refs/heads/$GHA_BRANCH.zip' && \
