@@ -201,7 +201,11 @@ RUN BAZELISK_PATH="/usr/local/bin/bazelisk"; \
     ln -s ${BAZELISK_PATH} /usr/local/bin/bazel
     
 
-RUN sudo snap install ttyd --classic    
+RUN sudo apt-get install -y build-essential cmake git libjson-c-dev libwebsockets-dev && \ 
+    git clone https://github.com/tsl0922/ttyd.git && \ 
+    cd ttyd && mkdir build && cd build && \ 
+    cmake .. && \ 
+    make && sudo make install
 
 RUN runuser dev -c "bazel > /dev/null"
 
