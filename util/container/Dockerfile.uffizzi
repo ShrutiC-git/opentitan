@@ -201,6 +201,7 @@ RUN BAZELISK_PATH="/usr/local/bin/bazelisk"; \
     ln -s ${BAZELISK_PATH} /usr/local/bin/bazel
     
 # Install ttyd
+RUN sudo apt-get install snapd
 RUN sudo snap install ttyd --classic    
 
 RUN runuser dev -c "bazel > /dev/null"
