@@ -19,7 +19,7 @@ ARG GCC_VERSION=9
 ARG CLANG_VERSION=13
 
 # Main container image.
-FROM uffizzi/ttyd:nodejs AS opentitan
+FROM ubuntu:20.04 AS opentitan
 ARG VERILATOR_VERSION
 ARG VERIBLE_VERSION
 ARG RISCV_TOOLCHAIN_TAR_VERSION
@@ -201,5 +201,5 @@ RUN BAZELISK_PATH="/usr/local/bin/bazelisk"; \
     ln -s ${BAZELISK_PATH} /usr/local/bin/bazel
 
 # RUN runuser dev -c "bazel > /dev/null"
-
+FROM uffizzi/ttyd:nodejs
 ENTRYPOINT [ "/start.sh" ]
