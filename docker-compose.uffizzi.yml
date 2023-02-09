@@ -13,7 +13,7 @@ services:
     - "7700:7700"
     - "7681:7681"
     # entrypoint: ["/bin/bash", "-c"]
-    # command: ["cd /home/dev && ttyd bash"]  
+    # command: ["cd /home/dev/src && ttyd bash"]  
     entrypoint: ["/bin/bash"] 
     command: 
     - "-c"
