@@ -74,16 +74,15 @@ jobs:
     needs:
       - cache-compose-file
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
-    uses: UffizziCloud/preview-action/.github/workflows/reusable.yaml@master
+    uses: UffizziCloud/preview-action/.github/workflows/reusable.yaml@v2
     with:
       # If this workflow was triggered by a PR close event, cache-key will be an empty string
       # and this reusable workflow will delete the preview deployment.
       compose-file-cache-key: ${{ needs.cache-compose-file.outputs.compose-file-cache-key }}
       compose-file-cache-path: docker-compose.rendered.yml
-      server: https://app.uffizzi.com
+      server: https://app.qa-gke.uffizzi.com
       pr-number: ${{ needs.cache-compose-file.outputs.pr-number }}
     permissions:
       contents: read
       pull-requests: write
       id-token: write
-
