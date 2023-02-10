@@ -4,6 +4,7 @@
 
 ## About the project
 
+
 [OpenTitan](https://opentitan.org) is an open source silicon Root of Trust
 (RoT) project.  OpenTitan will make the silicon RoT design and implementation
 more transparent, trustworthy, and secure for enterprises, platform providers,
